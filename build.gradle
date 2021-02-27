@@ -25,7 +25,6 @@ jar {
 
 dependencies {
     implementation 'info.picocli:picocli:4.5.2'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     implementation 'com.google.code.gson:gson:2.8.6'
     testCompile 'junit:junit:4.12'
 }

@@ -35,7 +35,7 @@ public class JIgnore {
             )) {
                 h.doExecute();
             }
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error occurred when running steps", e);
         }
     }
