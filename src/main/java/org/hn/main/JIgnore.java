@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class JIgnore {
+public class JIgnore  {
 
     private static final Logger LOGGER = Logger.getLogger( JIgnore.class.getName() );
 
@@ -21,7 +21,7 @@ public class JIgnore {
 
     public static void run(String[] args) {
         try {
-            ExecutionContext.setInstance(args[0], args[1], args[2]);
+            ExecutionContext.setInstance(args[0], args[1], System.getProperty("user.dir"));
         } catch (ArrayIndexOutOfBoundsException e) {
             LOGGER.log(Level.SEVERE, "Bad args provided");
             e.printStackTrace();
