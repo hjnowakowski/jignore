@@ -7,5 +7,9 @@
     "allPublicMethods" : true,
     "allDeclaredFields" : true,
     "allPublicFields" : true
+  },
+  {
+    "name": "org.hn.main.JIgnore",
+    "allDeclaredFields": true
   }
 ]

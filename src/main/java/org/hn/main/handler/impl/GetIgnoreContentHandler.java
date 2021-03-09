@@ -8,6 +8,6 @@ public class GetIgnoreContentHandler implements Handler {
 
     @Override
     public void doExecute() {
-        ExecutionContext.setIgnoreContent(new GitIgnoreDataProvider().getIgnoreContents(ExecutionContext.getKeyword()));
+        ExecutionContext.setIgnoreContent(new GitIgnoreDataProvider().getIgnoreContents(ExecutionContext.getKeywords()));
     }
 }

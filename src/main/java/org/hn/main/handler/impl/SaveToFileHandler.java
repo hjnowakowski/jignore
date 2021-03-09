@@ -15,7 +15,7 @@ public class SaveToFileHandler implements Handler {
                 .getGitIgnoreContent()
                 .orElseThrow(() -> new RuntimeException("No git ignore content found"));
         try {
-            Files.write(Paths.get(ExecutionContext.getGitIgnorePath()),
+            Files.write(Paths.get(ExecutionContext.getGitIgnorePath().toURI()),
                     ignoreFileContent.getBytes(),
                     StandardOpenOption.APPEND);
         } catch (IOException e) {

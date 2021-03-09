@@ -9,12 +9,14 @@ public class ArgumentParserHandler implements Handler {
 
     @Override
     public void doExecute() {
-        if (!new File(ExecutionContext.getGitIgnorePath()).isFile()) {
-            throw new RuntimeException("Provided file does not exist");
+        if (!ExecutionContext.getGitIgnorePath().exists()) {
+            throw new RuntimeException("Provided file does not exist: " + ExecutionContext.getGitIgnorePath());
         }
-        var keyword = ExecutionContext.getKeyword();
-        if (!keyword.equals(keyword.toLowerCase())) {
-            throw new RuntimeException("Keyword has to be lowercase!, but is: " + keyword);
-        }
+        ExecutionContext.getKeywords()
+                .stream()
+                .filter(k -> !k.equals(k.toLowerCase()))
+                .forEach(v -> {
+                    throw new RuntimeException("Keywords have to be lowercase, but found: " + v);
+                });
     }
 }
