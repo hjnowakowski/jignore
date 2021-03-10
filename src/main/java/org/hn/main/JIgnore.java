@@ -37,7 +37,6 @@ public class JIgnore implements Callable<Integer> {
     public Integer call() throws Exception {
         var directory = Optional.ofNullable(projectDirectory)
                 .orElse(System.getProperty("user.dir"));
-
         var keywords = Optional.ofNullable(keywordList)
                 .orElseThrow(() -> new RuntimeException("Keyword list is empty"));
         try {

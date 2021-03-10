@@ -1,5 +1,8 @@
 package org.hn.main;
 
+import org.hn.main.exception.ExecutionContextAlreadyInitializedException;
+import org.hn.main.exception.ExecutionContextNotInitializedException;
+
 import java.io.File;
 import java.util.List;
 import java.util.Optional;
@@ -36,19 +39,26 @@ public class ExecutionContext {
             }
             ExecutionContext.isInitialized = true;
         } else {
-            throw new RuntimeException("ExecutionContext already initialized!");
+            throw new ExecutionContextAlreadyInitializedException("ExecutionContext already initialized!");
         }
     }
 
+    //TODO: delete
     public static void setIgnoreContent(String ignoreContent) {
         ExecutionContext.gitIgnoreContent = ignoreContent;
     }
 
     public static List<String> getKeywords() {
+        if (!isInitialized) {
+            throw new ExecutionContextNotInitializedException("Value not yet assigned");
+        }
         return keywords;
     }
 
     public static File getGitIgnorePath() {
+        if (!isInitialized) {
+            throw new ExecutionContextNotInitializedException("Value not yet assigned");
+        }
         return gitIgnorePath;
     }
 
