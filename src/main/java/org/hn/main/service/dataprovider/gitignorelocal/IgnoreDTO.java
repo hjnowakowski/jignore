@@ -1,13 +1,13 @@
-package org.hn.main.handler.dataprovider.gitignorelocal;
+package org.hn.main.service.dataprovider.gitignorelocal;
 
 import com.google.gson.annotations.SerializedName;
 
 public class IgnoreDTO {
 
     @SerializedName("key")
-    protected String key;
+    private String key;
     @SerializedName("contents")
-    protected String contents;
+    private String contents;
 
     public void setKeyword(String key) {
         this.key = key;
