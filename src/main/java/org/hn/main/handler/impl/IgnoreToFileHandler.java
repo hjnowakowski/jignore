@@ -1,6 +1,7 @@
 package org.hn.main.handler.impl;
 
 import org.hn.main.handler.CommandHandler;
+import org.hn.main.service.IOService;
 import org.hn.main.service.IgnoreContentService;
 import org.hn.main.service.impl.IOServiceImpl;
 import org.hn.main.util.ValidationUtils;
@@ -17,7 +18,7 @@ public class IgnoreToFileHandler implements CommandHandler {
     private final List<String> keywords;
     private final File ignoreFile;
     private final IgnoreContentService ignoreContentService;
-    private final IOServiceImpl ioService;
+    private final IOService ioService;
 
     public IgnoreToFileHandler(List<String> keywords, String ignoreFile, IgnoreContentService ignoreContentService, IOServiceImpl ioService) {
         this.keywords = keywords
