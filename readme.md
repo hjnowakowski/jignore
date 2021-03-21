@@ -5,9 +5,20 @@
   </a>
 </p>
 
+## Description
+
+`jignore` is a CLI app that can generate .gitignore contents.
+`jignore` is written in Java and can be compiled to the native image (thanks to GraalVM). 
+
+
 ## Disclaimer
 
-> This project is not ready yet (as a CLI gitignore tool). The initial goal is to provide a POC of a CLI application written in Java but leveraging GraalVM to increase it's performance. If I have time, I'll finish this app such that is a usable CLI utility for generating `.gitignore` files.
+> The app uses the .gitignore collection from [gitignore.io](https://docs.gitignore.io/use/api)
+
+## Performance comparison
+
+The left Terminal shows the execution of the **native image**. The right one uses **jar** program.
+The difference is not huge, however still clearly visible. Note that native image does not require JVM to run.
 
 <div align="center"> 
 <img src="readme-assets/jar-vs-native.gif">
@@ -39,7 +50,6 @@ native-image -jar jg-1.0-SNAPSHOT.jar \
  -H:IncludeResources='gitignore.io.json' \ #graalvm needs to have resources explicitly referenced
  -H:ReflectionConfigurationFiles="<DIR-TO-THE-PROJECT>/src/main/resources/reflection-config.json" \ #since we are deserializing the json file, we need to provide proper reflection configuration
  --no-fallback
-
 ```
 
 ## Author
