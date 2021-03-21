@@ -6,5 +6,5 @@ import java.io.File;
  * IOServices offer IO API
  */
 public interface IOService {
-    void appendToFile(File file, String text);
+    void writeToFile(File file, String text);
 }

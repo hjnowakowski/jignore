@@ -39,7 +39,7 @@ public class IgnoreToFileHandler implements CommandHandler {
             LOG.info("Duplicated keywords will be removed");
         }
         var ignoreContent = getIgnoreContent(this.keywords);
-        this.ioService.appendToFile(this.ignoreFile, ignoreContent);
+        this.ioService.writeToFile(this.ignoreFile, ignoreContent);
     }
 
     private String getIgnoreContent(List<String> keywords) {
