@@ -1,6 +1,5 @@
 package org.hn.main;
 
-import org.hn.main.exception.InvalidInputException;
 import org.hn.main.handler.HandlerFactory;
 import picocli.CommandLine;
 
@@ -9,6 +8,7 @@ import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.logging.Logger;
 
+@CommandLine.Command(name = "jg", mixinStandardHelpOptions = true, version = "0.1")
 public class JIgnore implements Callable<Integer> {
 
     private static final Logger LOG = Logger.getLogger(JIgnore.class.getName());
@@ -32,11 +32,15 @@ public class JIgnore implements Callable<Integer> {
         var directory = Optional.ofNullable(projectDirectory)
                 // if null get the dir where script was called
                 .orElse(System.getProperty("user.dir"));
-        var keywords = Optional.ofNullable(keywordList)
-                .orElseThrow(() -> new InvalidInputException("Keyword list is empty"));
+        var keywords = keywordList;
         try {
-            HandlerFactory.getIgnoreToFileHandler(keywords, directory).doHandle();
+            if (keywords == null) {
+                CommandLine.usage(this, System.out);
+            } else {
+                HandlerFactory.getIgnoreToFileHandler(keywords, directory).doHandle();
+            }
         } catch (Exception e) {
+            LOG.info(e.getMessage());
             return -1;
         }
         return 0;
