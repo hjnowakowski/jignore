@@ -3,8 +3,12 @@ package org.hn.main.util;
 import org.hn.main.exception.PathParsingException;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.List;
 
 public class ValidationUtils {
+
+    private ValidationUtils() { }
 
     /**
      * Returns a reference to the file.
@@ -29,5 +33,14 @@ public class ValidationUtils {
             return new File(path + optionalFilename);
         }
         throw new PathParsingException("Could not resolve a File object of " + path + " and file " + optionalFilename);
+    }
+
+    /**
+     * Is true when all list members are unique
+     * @param list
+     * @return
+     */
+    public static <T> boolean areAllUnique(List<T> list){
+        return list.stream().allMatch(new HashSet<>()::add);
     }
 }

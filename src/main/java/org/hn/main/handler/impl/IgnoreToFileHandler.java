@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import static org.hn.main.util.ValidationUtils.areAllUnique;
+
 public class IgnoreToFileHandler implements CommandHandler {
 
     private static final Logger LOG = Logger.getLogger(IgnoreToFileHandler.class.getName());
@@ -33,6 +35,9 @@ public class IgnoreToFileHandler implements CommandHandler {
     @Override
     public void doHandle() {
         LOG.info("Handling gitignore command...");
+        if (!areAllUnique(this.keywords)) {
+            LOG.info("Duplicated keywords will be removed");
+        }
         var ignoreContent = getIgnoreContent(this.keywords);
         this.ioService.appendToFile(this.ignoreFile, ignoreContent);
     }

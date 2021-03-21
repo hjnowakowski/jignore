@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.logging.Logger;
 
 public class IOServiceImpl implements IOService {
+
+    private static final Logger LOGGER = Logger.getLogger(IOServiceImpl.class.getName());
 
     public void appendToFile(File file, String text) {
         try {
@@ -16,7 +19,7 @@ public class IOServiceImpl implements IOService {
                     text.getBytes(),
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
-            throw new RuntimeException("IOException occurred when accessing " + file + " file");
+            LOGGER.info(e.getMessage());
         }
     }
 
