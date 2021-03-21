@@ -1,12 +1,8 @@
 [
   {
-    "name" : "org.hn.main.handler.dataprovider.gitignorelocal.IgnoreDTO",
-    "allDeclaredConstructors" : true,
+    "name" : "org.hn.main.service.dataprovider.gitignorelocal.IgnoreDTO",
     "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "allDeclaredFields" : true,
-    "allPublicFields" : true
+    "allPublicMethods" : true
   },
   {
     "name": "org.hn.main.JIgnore",
