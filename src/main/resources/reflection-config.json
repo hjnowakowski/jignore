@@ -2,10 +2,23 @@
   {
     "name" : "org.hn.main.service.dataprovider.gitignorelocal.IgnoreDTO",
     "allPublicConstructors" : true,
+    "allDeclaredFields" : true,
     "allPublicMethods" : true
   },
   {
     "name": "org.hn.main.JIgnore",
-    "allDeclaredFields": true
+    "allDeclaredFields": true,
+    "allPublicMethods" : true
+  },
+  {
+    "name" : "picocli.CommandLine$AutoHelpMixin",
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true,
+    "fields" : [
+      { "name" : "helpRequested" },
+      { "name" : "versionRequested" }
+    ]
   }
 ]
