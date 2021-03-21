@@ -33,15 +33,10 @@ public class JIgnore implements Callable<Integer> {
                 // if null get the dir where script was called
                 .orElse(System.getProperty("user.dir"));
         var keywords = keywordList;
-        try {
-            if (keywords == null) {
-                CommandLine.usage(this, System.out);
-            } else {
-                HandlerFactory.getIgnoreToFileHandler(keywords, directory).doHandle();
-            }
-        } catch (Exception e) {
-            LOG.info(e.getMessage());
-            return -1;
+        if (keywords == null) {
+            CommandLine.usage(this, System.out);
+        } else {
+            HandlerFactory.getIgnoreToFileHandler(keywords, directory).doHandle();
         }
         return 0;
     }
