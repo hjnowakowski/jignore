@@ -10,6 +10,12 @@
 `jignore` is a CLI app that can generate .gitignore contents.
 `jignore` is written in Java and can be compiled to the native image (thanks to GraalVM). 
 
+**Example usage**
+```sh
+jg java kotlin intellij
+```
+The above snipped will create a `.gitignore` (or append to existing) with the ignore contents related to `java`, `kotlin` and `intellij` keywords.
+Note that firstly you need to compile the app to the native image (see below sections on how to do that) and later add it to the `PATH`.
 
 ## Disclaimer
 
