@@ -5,8 +5,13 @@
   </a>
 </p>
 
-## Disclamer 
+## Disclaimer
+
 > This project is not ready yet (as a CLI gitignore tool). The initial goal is to provide a POC of a CLI application written in Java but leveraging GraalVM to increase it's performance. If I have time, I'll finish this app such that is a usable CLI utility for generating `.gitignore` files.
+
+<div align="center"> 
+<img src="readme-assets/jar-vs-native.gif">
+</div>
 
 ## Prerequisites
 
