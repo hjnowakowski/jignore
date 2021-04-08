@@ -5,6 +5,10 @@
   </a>
 </p>
 
+## Disclaimer
+
+> The main purpose of this project is to test the GraalVM's native-image tool with a sample CLI Java program. The CLI program (gitignore generator) can be also used on it's own. Some functionality might be missing, but it's planned to be added in some future (see the [Issues section](https://github.com/hjnowakowski/jignore/issues) for missing functions).
+
 ## Description
 
 `jignore` is a CLI app that can generate .gitignore contents.
@@ -17,9 +21,9 @@ jg java kotlin intellij
 The above snipped will create a `.gitignore` (or append to existing) with the ignore contents related to `java`, `kotlin` and `intellij` keywords.
 Note that firstly you need to compile the app to the native image (see below sections on how to do that) and later add it to the `PATH`.
 
-## Disclaimer
+## Shout-out to [gitignore.io](https://docs.gitignore.io/use/api)
 
-> The app uses the .gitignore collection from [gitignore.io](https://docs.gitignore.io/use/api)
+The app uses the .gitignore collection from [gitignore.io](https://docs.gitignore.io/use/api)
 
 ## Performance comparison
 
@@ -35,7 +39,7 @@ The difference is not huge, however still clearly visible. Note that native imag
 * GraalVM Component Updater v2.0.0 (used to install `native-image`)
 * GraalVM native-image building tool
 
-## Installing GraalVM tools
+## Install GraalVM tools
 
 I've used brew to download the GraalVM
 
@@ -45,7 +49,7 @@ brew install --cask graalvm/tap/graalvm-ce-lts-java11
 gu install native-image # Installs the native-image tool that is used to generate an executable
 ```
 
-## Build and run as native image
+## Build and run the app as a native image
 
 ```sh
 ./gradlew jar #Creates a jar with the app in the build/libs directory
