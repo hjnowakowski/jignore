@@ -26,6 +26,17 @@ test {
     useJUnitPlatform()
 }
 
+tasks.register('refresh-gitignore-json') {
+    doLast {
+        def gitignoreContent = 'https://www.toptal.com/developers/gitignore/api/list?format=json'
+                .toURL()
+                .text
+        new File("${projectDir}/src/main/resources/auto-generated-gitignore.io.json").newWriter().withWriter {
+            it << gitignoreContent
+        }
+    }
+}
+
 dependencies {
     implementation 'info.picocli:picocli:4.5.2'
     implementation 'com.google.code.gson:gson:2.8.6'
