@@ -21,7 +21,7 @@ jg java kotlin intellij
 The above snipped will create a `.gitignore` (or append to existing) with the ignore contents related to `java`, `kotlin` and `intellij` keywords.
 Note that firstly you need to compile the app to the native image (see below sections on how to do that) and later add it to the `PATH`.
 
-## Shout-out to [gitignore.io](https://docs.gitignore.io/use/api)
+## Shout-out to [toptal.com, gitignore.io](https://docs.gitignore.io/use/api)
 
 The app uses the .gitignore collection from [gitignore.io](https://docs.gitignore.io/use/api)
 
@@ -57,7 +57,7 @@ gu install native-image # Install the native-image tool that is used to generate
 cd build/libs
 
 native-image -jar jg-1.0-SNAPSHOT.jar \
- -H:IncludeResources='gitignore.io.json' \ # GraalVM needs to have resources explicitly referenced
+ -H:IncludeResources='auto-generated-gitignore.io.json' \ # GraalVM needs to have resources explicitly referenced
  -H:ReflectionConfigurationFiles="<DIR-TO-THE-PROJECT>/src/main/resources/reflection-config.json" \ # Reflection configuration
  --no-fallback # Make the file JDK-independent
 ```

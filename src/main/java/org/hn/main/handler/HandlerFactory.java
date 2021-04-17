@@ -17,7 +17,7 @@ public class HandlerFactory {
     private HandlerFactory() {}
 
     public static CommandHandler getIgnoreToFileHandler(final List<String> keywords, final String directory) {
-        var resourcePath = "gitignore.io.json";
+        var resourcePath = "auto-generated-gitignore.io.json";
         var inputStreamWithResource = Optional
                 .ofNullable(ClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath))
                 .orElseThrow(() -> new ResourceFileNotFoundException("File " + resourcePath + "not found in the resources"));
