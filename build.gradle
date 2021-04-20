@@ -22,6 +22,24 @@ jar {
     }
 }
 
+tasks.register('build-native-image') {
+    dependsOn 'jar'
+    doLast {
+        def b = new StringBuffer()
+        def proc = ["native-image",
+                    "-jar",
+                    "${projectDir}/build/libs/jg-0.1-SNAPSHOT.jar",
+                    "jg",
+                    "-H:IncludeResources='auto-generated-gitignore.io.json'",
+                    "-H:ReflectionConfigurationFiles=${projectDir}/src/main/resources/reflection-config.json",
+                    '--no-fallback'].execute(null, new File("${projectDir}/build/libs"))
+                    // null as first arg, because there is no simplier constructor
+        proc.consumeProcessErrorStream(b)
+        println proc.text
+        println b.toString()
+    }
+}
+
 test {
     useJUnitPlatform()
 }

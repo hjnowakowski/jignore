@@ -52,14 +52,7 @@ gu install native-image # Install the native-image tool that is used to generate
 ## Build and run the app as a native image
 
 ```sh
-./gradlew jar # Create a jar with the app in the build/libs directory
-
-cd build/libs
-
-native-image -jar jg-1.0-SNAPSHOT.jar \
- -H:IncludeResources='auto-generated-gitignore.io.json' \ # GraalVM needs to have resources explicitly referenced
- -H:ReflectionConfigurationFiles="<DIR-TO-THE-PROJECT>/src/main/resources/reflection-config.json" \ # Reflection configuration
- --no-fallback # Make the file JDK-independent
+./gradlew build-native-image
 ```
 
 ## Author
