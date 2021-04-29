@@ -41,6 +41,7 @@ tasks.register('build-native-image') {
 }
 
 test {
+    jvmArgs '-agentlib:native-image-agent=config-output-dir=META-INF/native-image'
     useJUnitPlatform()
 }
 
